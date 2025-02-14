@@ -1,0 +1,174 @@
+/* Story page container */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* Two equal columns */
+    gap: 0rem;
+    padding: 5vh 0vw; /* Added padding for better spacing */
+    background-color: rgba(160, 223, 199, 0.8);
+}
+
+/* Left-side story container */
+.story-container {
+    padding: 10vh 0vw;
+    width: 100%;
+    max-width: 600px; /* Restricts width for better readability */
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Story header section */
+.story-header {
+    background-color: rgba(240, 247, 244, 0.8);
+    padding: 1.6rem;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    max-width: 90%;
+    align-self: flex-start;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.story-header h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin: 0;
+    padding-left: 0;
+}
+
+/* Right-side story image */
+.story-image {
+    padding: 13vh 0vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.story-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Mascot decorations */
+.mascot-decoration1 {
+    width: 60px;
+    height: auto;
+    position: absolute;
+    margin-top: 12rem;
+    margin-left: 1rem;
+}
+
+.story-mascot {
+    bottom: -30px;
+    right: 30px;
+}
+
+.details-mascot {
+    top: -30px;
+    left: 30px;
+}
+
+/* Left column - Responsible Food Practices */
+.practices-container {
+    display: flex;
+    gap: 2rem; /* Space between the two sections */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    position:relative;
+}
+
+.practices-section {
+    background-color: rgba(150, 206, 182, 0.8);
+    color: white;
+    text-align: center;
+    justify-content: center;
+    margin-left: 7.5rem;
+    display: grid;
+    height: 80px;
+    width: 90%;
+}
+
+.practices-content {
+    background-color: rgb(237, 230, 230);
+    color: black;
+    text-align: left;
+    padding: 1.5rem;
+    width: 300px;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.nifty-details {
+    margin-top: 10rem;
+    background-color: rgba(150, 206, 182, 0.8);
+    border-radius: 8px;
+    padding-top: 1.5rem;
+    text-align: center;
+    max-width: 800px;
+    color: white;
+    justify-content: center;
+    width: 250px;
+}
+.details-list {
+    background-color: rgb(237, 230, 230);
+    padding: 2rem;
+    color: black;
+    text-align: left;
+    width: 250px;
+    text-align: justify;
+    line-height: 1.3;
+}
+.carousel-slide {
+    display: none;
+    width: 100%;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.dot-container {
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 50px;
+    width: 50%;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #ff69b4;
+}
+
+.mascot-decoration {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+}
+
+.mascot-1 {
+    top: 100px;
+    left: 20px;
+}
+
+.mascot-2 {
+    bottom: 20px;
+    right: 20px;
+}

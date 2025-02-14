@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Vertical Farming @ Singapore EXPO</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:;">
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-left">
+            <div class="mascot-group">
+                <a href = "../">
+                <img src="public/Assets/Components/mascots.png" alt="Mascot Characters" class="mascots">
+                </a>    
+            </div>
+            <div class="title-container">
+                <img src="public/Assets/Components/vertical-farming.png" alt="Mascot Characters" class="mascots">
+            </div>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="about" class="nav-link">About us</a></li>
+                <li><a href="ar" class="nav-link">Augmented Reality</a></li>
+                <li><a href="story" class="nav-link">Our Story</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Dynamic Content -->
+        <div id="router-view"></div>
+
+        <!-- Info Panel -->
+        <div class="info-panel">
+            <h2>Singapore EXPO</h2>
+            <img src="public/Assets/Components/mascot.png" alt="Mascot" class="info-mascot">
+            <div class="info-box">
+                <div class="info-text">
+                    <p>Vertical farming technologies can be found in the model.</p>
+                    <p class="click-more">Click to find out more.</p>
+                </div>
+            </div>
+            <div class="location-buttons">
+                <button class="location-btn"><a href= "indoor-farm">Indoor Farm@EXPO</a></button>
+                <button class="location-btn"><a href= "rooftop-farm">Rooftop Farm@EXPO</a></button>
+                <button class="location-btn"><a href= "sutd-system">SUTD Automated Harvesting System</a></button>
+            </div>
+        </div>
+
+        <!-- Three.js Container -->
+        <div id="threejs-container"></div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Collab By:</p>
+        <a href="https://www.constellar.co/sg" target="_blank">
+            <img src="public/Assets/Logos/constellar.png" alt="Constellar-Logo" class="footer-logo" />
+          </a>
+          <a href="https://www.sutd.edu.sg" target="_blank">
+            <img src="public/Assets/Logos/SUTD.webp" alt="SUTD-Logo" class="footer-logo" />
+          </a>
+          <a href="https://www.blueacres.sg" target="_blank">
+            <img src="public/Assets/Logos/Blue-Acres.avif" alt="BlueAcres-Logo" class="footer-logo" />
+          </a>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="src/main.js"></script>
+    <script src="src/router.js"></script>
+    <script src="src/story-carousel.js"></script>
+    <script src="src/test_roof_carousel.js"></script>
+</body>
+</html>

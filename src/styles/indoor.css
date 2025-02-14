@@ -1,0 +1,189 @@
+.about-container {
+    position: relative;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 2; /* Ensure content appears above three.js container */
+    background-color: rgb(150, 139, 139); /* Add background to ensure content is visible */
+}
+
+/* About header section */
+.about-header {
+    background-color: rgba(160, 223, 199, 0.8);
+    padding: 1.6rem 2rem;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    width: 450px;
+}
+
+.about-header h1 {
+    color: #333;
+    font-size: 2.2rem;
+    margin: 0;
+    text-align: center;
+}
+
+/* Reason section */
+.reason-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0rem;
+    position: relative;
+    margin-top: 2rem;
+    width: 350px;
+    margin-left: 100px;
+    border-radius: 8px;
+    background-color:  rgba(160, 223, 199, 0.8);/* Add background */
+}
+
+/* Team section */
+.team-section {
+    padding: 2rem;
+    margin-top: 2rem;
+    position: relative;
+    background-color: rgba(195, 184, 184, 0.9); /* Add background */
+}
+
+.reason-content {
+
+    min-width: 300px;
+    margin-left: 50px;
+    background-color: rgba(160, 223, 199, 0.8);
+}
+
+.highlight {
+    color: #e3007c;
+}
+
+.reason-content p {
+    line-height: 1.6;
+    color: #444;
+    text-align: justify;
+    padding: 10px;
+}
+
+/* Mascot decorations */
+.story-mascot {
+bottom: -30px;
+right: 30px;
+}
+      
+.details-mascot {
+top: -30px;
+left: 30px;
+}
+
+/* Team section */
+.team-section {
+    padding: 2rem;
+    margin-top: 2rem;
+    position: relative;
+}
+
+.team-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+.team-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.team-info {
+    flex: 1;
+    max-width: 40%;
+    background-color: rgba(160, 223, 199, 0.8);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    overflow-y: auto;
+}
+
+.team-info h3 {
+    color: #333;
+    margin: 1.5rem 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.team-info p {
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.team-image {
+    flex: 0 0 500px;
+}
+
+.team-image img {
+    width: 800px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .about-container {
+        padding-top: 12vh;
+    }
+
+    .circular-image {
+        flex: 0 0 300px;
+        height: 300px;
+    }
+
+    .team-image {
+        flex: 0 0 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-container {
+        padding-top: 20vh;
+    }
+
+    .reason-section,
+    .team-content {
+        flex-direction: column;
+    }
+
+    .reason-content,
+    .team-info {
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .circular-image,
+    .team-image {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .about-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .reason-content h2,
+    .team-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about-container {
+        padding-top: 25vh;
+    }
+
+    .circular-image {
+        height: 250px;
+    }
+}

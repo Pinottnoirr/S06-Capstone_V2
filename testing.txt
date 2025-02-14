@@ -1,0 +1,37 @@
+// import * as THREE from 'three';
+
+// // initialize the scene
+// const scene = new THREE.Scene();
+
+// console.log(THREE);
+
+// // add objects to the scene
+// const geometry = new THREE.BoxGeometry(1, 1, 1);
+// const material = new THREE.MeshBasicMaterial({ color: "red" });
+// const cube = new THREE.Mesh(geometry, material);
+// scene.add(cube);
+
+// // initialize the camera
+// const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 30  );
+// camera.position.z = 5; // manipluate the camera position
+// scene.add(camera); // add the camera to the scene
+
+// // initialize the renderer
+// const canvas = document.querySelector('canvas.threejs');
+// console.log(canvas);
+// const renderer = new THREE.WebGLRenderer({ canvas: canvas });
+// renderer.setSize(500, 500)
+// renderer.render(scene, camera);
+
+// // animate the cube
+// const animate = function () {
+//   requestAnimationFrame(animate);
+
+//   cube.rotation.x += 0.01;
+//   cube.rotation.y += 0.01;
+
+//   renderer.render(scene, camera);
+// }
+
+// // call the animate function
+// animate();

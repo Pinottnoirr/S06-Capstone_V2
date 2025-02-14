@@ -1,0 +1,274 @@
+.about-container {
+          position: relative;
+          padding-top: 15vh;
+          padding-bottom: 15vh;
+          width: 100%;
+          margin: 0 auto;
+          z-index: 2; /* Ensure content appears above three.js container */
+          background-color: rgb(150, 139, 139); /* Add background to ensure content is visible */
+      }
+    
+    /* Background Video section */
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .bg-video {
+        /* position to be fixed to force bg vid into container */
+        position: fixed; 
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: -1;
+    }
+      
+    /* About header section */
+    .about-header {
+        background-color: rgba(160, 223, 199, 0.8);
+        padding: 1.6rem 2rem;
+        border-radius: 0.5rem;
+        margin-top: 2rem;
+        width: 380px;
+    }
+
+    .about-header h1 {
+        color: #333;
+        font-size: 2.2rem;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* Reason section */
+    .reason-section {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 0rem;
+        position: static;
+        margin-top: 2rem;
+        /* top: 100px; */
+        height: 337px;
+        width: 431px;
+        margin-left: 100px;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Slider-bullet section */
+    .slider-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .slide {
+        background-color: rgb(240, 253, 250);
+        padding: 24px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 16px;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .slide.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .slide-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+    }
+
+    /* bullet section */
+    .bullet-nav {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .bullet {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: #cbd5e0;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .bullet:hover {
+        background-color: #a0aec0;
+    }
+
+    .bullet.active {
+        background-color: #f687b3;
+    }
+
+    
+    /* Team section */
+    .team-section {
+        padding: 2rem;
+        margin-top: 2rem;
+        position: relative;
+        background-color: rgba(195, 184, 184, 0.9); /* Add background */
+    }
+
+    .reason-content {
+        position: relative;
+        top: -4px;
+        min-width: 371px;
+        height: 270px;
+        margin-left: 40px;
+        margin-right: 18px;
+        /* uncomment bottom line to see coverage of this class section */
+        /* background-color: rgba(160, 223, 199, 0.8); */
+    }
+
+    .highlight {
+        color: #e3007c;
+    }
+
+    .reason-content p {
+        line-height: 1.6;
+        color: #444;
+        text-align: justify;
+        padding: 10px;
+    }
+
+    /* Mascot decorations */
+    .story-mascot {
+        width: 150px;
+        height: auto;
+        margin-left: 10px;
+        position:absolute;
+        left: 0px;
+    }
+        
+    .details-mascot {
+        top: -30px;
+        left: 30px;
+    }
+
+    /* Team section */
+    .team-section {
+        padding: 2rem;
+        margin-top: 2rem;
+        position: relative;
+    }
+
+    .team-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        color: #333;
+        text-align: center;
+    }
+
+    .team-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .team-info {
+        flex: 1;
+        max-width: 40%;
+        background-color: rgba(160, 223, 199, 0.8);
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        margin-top: 2rem;
+        overflow-y: auto;
+    }
+
+    .team-info h3 {
+        color: #333;
+        margin: 1.5rem 0 0.5rem 0;
+        font-size: 1.2rem;
+    }
+
+    .team-info p {
+        color: #444;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+    }
+
+    .team-image {
+        flex: 0 0 500px;
+    }
+
+    .team-image img {
+        width: 800px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 1rem;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 1024px) {
+        .about-container {
+            padding-top: 12vh;
+        }
+
+        .circular-image {
+            flex: 0 0 300px;
+            height: 300px;
+        }
+
+        .team-image {
+            flex: 0 0 300px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .about-container {
+            padding-top: 20vh;
+        }
+
+        .reason-section,
+        .team-content {
+            flex-direction: column;
+        }
+
+        .reason-content,
+        .team-info {
+            padding-right: 0;
+            margin-bottom: 2rem;
+        }
+
+        .circular-image,
+        .team-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .about-header h1 {
+            font-size: 1.5rem;
+        }
+
+        .reason-content h2,
+        .team-section h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .about-container {
+            padding-top: 25vh;
+        }
+
+        .circular-image {
+            height: 250px;
+        }
+    }

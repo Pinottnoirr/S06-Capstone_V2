@@ -1,0 +1,142 @@
+.system-container {
+          padding: 2rem;
+          background-color: #e0f2f1;
+          min-height: 100vh;
+          position: relative;
+      }
+      
+      .system-header {
+          text-align: center;
+          margin-bottom: 3rem;
+          position: relative;
+      }
+      
+      .system-header h1 {
+          font-size: 2.5rem;
+          color: #333;
+          display: inline-block;
+          padding: 0.5rem 2rem;
+          background-color: rgba(144, 238, 144, 0.3);
+          border-radius: 8px;
+      }
+      
+      .system-content {
+          display: flex;
+          gap: 3rem;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 2rem;
+          position: relative;
+      }
+      
+      .system-description {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+      }
+      
+      .mascot-quote {
+          background-color: rgba(255, 255, 255, 0.9);
+          padding: 2rem;
+          border-radius: 12px;
+          position: relative;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+      
+      .mascot-decoration {
+          position: absolute;
+          width: 80px;
+          top: -40px;
+          left: -40px;
+      }
+      
+      .system-features {
+          background-color: rgba(255, 255, 255, 0.9);
+          padding: 2rem;
+          border-radius: 12px;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+      
+      .system-features h2 {
+          color: #333;
+          margin-bottom: 1rem;
+      }
+      
+      .system-features ul {
+          list-style: none;
+          padding: 0;
+      }
+      
+      .system-features li {
+          margin-bottom: 0.8rem;
+          padding-left: 1.5rem;
+          position: relative;
+      }
+      
+      .system-features li::before {
+          content: '•';
+          color: #ff69b4;
+          position: absolute;
+          left: 0;
+      }
+      
+      .system-image {
+          flex: 1;
+      }
+      
+      .system-image img {
+          width: 100%;
+          border-radius: 12px;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+      
+      .contact-buttons {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+      }
+      
+      .contact-btn {
+          padding: 1rem;
+          background-color: rgba(144, 238, 144, 0.3);
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+      }
+      
+      .contact-btn:hover {
+          background-color: rgba(144, 238, 144, 0.5);
+          transform: translateY(-2px);
+      }
+      
+      .development-notice {
+          background-color: rgba(255, 255, 255, 0.9);
+          padding: 2rem;
+          border-radius: 12px;
+          text-align: center;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+      
+      .mascot-small {
+          width: 60px;
+          margin-bottom: 1rem;
+      }
+      
+      @media (max-width: 768px) {
+          .system-content {
+              flex-direction: column;
+              padding: 1rem;
+          }
+      
+          .system-header h1 {
+              font-size: 2rem;
+          }
+      
+          .mascot-decoration {
+              width: 60px;
+              top: -30px;
+              left: -30px;
+          }
+      }
