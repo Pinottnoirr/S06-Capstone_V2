@@ -1,5 +1,37 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
+
+const loader = new GLTFLoader();
+loader.setMeshoptDecoder(MeshoptDecoder);
+loader.load('src/models/model_.glb', function (gltf) {
+    
+    // Success callback
+    const model = gltf.scene;
+          
+    // Optional: Scale the model if needed
+    model.scale.set(0.1, 0.1, 0.1);  // Adjust these values as needed
+    
+    // Optional: Position the model
+    model.position.set(5, 1, 5);  // Adjust these values as needed
+    
+    // Optional: Rotate the model if needed
+    model.rotation.y = Math.PI / 2;  // Rotate 90 degrees if needed
+    
+    
+    scene.add(model);
+  },
+
+  function (xhr) {
+    // Progress callback
+    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+  },
+  function (error) {
+    // Error callback
+    console.error('An error occurred loading the model:', error);
+  }
+);
 
 // Scene setup
 const scene = new THREE.Scene();
