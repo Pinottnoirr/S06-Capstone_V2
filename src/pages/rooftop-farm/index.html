@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../../../src/styles/rooftop.css">
 
 <script> console.log('script loaded')</script>
-<script src="../../test_roof_carousel.js"></script>
+<!-- <script src="../../test_arrows_carousel.js"></script> -->
 
 <!-- about us div container constains the following:
     - Header 
@@ -9,19 +9,23 @@
 -->
 
 <div class="about-container">
-    <!-- Background -->
     
-    
-    <!--out Us Header -->
+    <!--About Us Header -->
     <div class="about-header">
         <h1>Rooftop Farm</h1>
     </div>
     <img src="public/Assets/Components/mascot.png" alt="" class="story-mascot" />
     <!-- Reason Section -->
+    <!-- Add arrow buttons -->
     
     <div class="reason-section">
         <div class="slider-container">
+
+            <button class="carousel-arrow prev-arrow" aria-label="Previous slide"></button>
+            <button class="carousel-arrow next-arrow" aria-label="Next slide"></button>
+
             <div class="slides">
+                
                 <div class="slide active">
                     <div class="slide-title">Sustainability/Exhibit Inquiries</div>
                     <div class="reason-content">

@@ -66,11 +66,12 @@
         max-width: 600px;
         margin: 0 auto;
         padding: 20px;
+        position:relative;
     }
 
     .slide {
         background-color: rgb(240, 253, 250);
-        padding: 24px;
+        padding: 33px;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         margin-bottom: 16px;
@@ -113,6 +114,72 @@
 
     .bullet.active {
         background-color: #f687b3;
+    }
+
+    /* ARROW section */
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+
+    .carousel-arrow::before {
+        content: '';
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-top: 3px solid #666;
+        border-right: 3px solid #666;
+        transition: all 0.3s ease;
+    }
+
+    .carousel-arrow:hover::before {
+        border-color: #f687b3;
+    }
+
+    .prev-arrow {
+        left: 32px;
+    }
+
+    .next-arrow {
+        right: 32px;
+    }
+
+    .prev-arrow::before {
+        transform: rotate(-135deg);
+    }
+
+    .next-arrow::before {
+        transform: rotate(45deg);
+    }
+
+    /* Optional: Add a subtle scale effect on hover */
+    .carousel-arrow:hover {
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    /* Optional: Add disabled state styling */
+    .carousel-arrow.disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    .carousel-arrow.disabled:hover {
+        transform: translateY(-50%);
+    }
+
+    .carousel-arrow.disabled:hover::before {
+        border-color: #666;
     }
 
     

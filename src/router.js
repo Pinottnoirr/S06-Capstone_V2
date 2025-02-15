@@ -66,7 +66,7 @@ const router = {
                     routerView.innerHTML = content;
                     this.hideHomeElements();
                     // this bottom line force the bullet carousel js to run, due to router.js properties
-                    this.initRooftopCarousel();
+                    // this.initRooftopCarousel();
                     break;
 
                 case 'sutd-system':
@@ -116,43 +116,43 @@ const router = {
         });
     },
 
-    initRooftopCarousel: function() {
-        console.log('Initializing rooftop carousel');
-        const slides = document.querySelectorAll('.slide');
-        const bullets = document.querySelectorAll('.bullet');
+    // initRooftopCarousel: function() {
+    //     console.log('Initializing rooftop carousel');
+    //     const slides = document.querySelectorAll('.slide');
+    //     const bullets = document.querySelectorAll('.bullet');
 
-        if (!slides.length || !bullets.length) {
-            console.error('Carousel elements not found');
-            return;
-        }
+    //     if (!slides.length || !bullets.length) {
+    //         console.error('Carousel elements not found');
+    //         return;
+    //     }
 
-        // Handle slide changes
-        function changeSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            bullets.forEach(bullet => bullet.classList.remove('active'));
+    //     // Handle slide changes
+    //     function changeSlide(index) {
+    //         slides.forEach(slide => slide.classList.remove('active'));
+    //         bullets.forEach(bullet => bullet.classList.remove('active'));
             
-            slides[index].classList.add('active');
-            bullets[index].classList.add('active');
-        }
+    //         slides[index].classList.add('active');
+    //         bullets[index].classList.add('active');
+    //     }
 
-        // Add click handlers to bullets
-        bullets.forEach((bullet, index) => {
-            bullet.addEventListener('click', () => changeSlide(index));
-        });
+    //     // Add click handlers to bullets
+    //     bullets.forEach((bullet, index) => {
+    //         bullet.addEventListener('click', () => changeSlide(index));
+    //     });
 
-        // Add keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            const currentIndex = [...slides].findIndex(slide => 
-                slide.classList.contains('active')
-            );
+    //     // Add keyboard navigation
+    //     document.addEventListener('keydown', (e) => {
+    //         const currentIndex = [...slides].findIndex(slide => 
+    //             slide.classList.contains('active')
+    //         );
             
-            if (e.key === 'ArrowLeft' && currentIndex > 0) {
-                changeSlide(currentIndex - 1);
-            } else if (e.key === 'ArrowRight' && currentIndex < slides.length - 1) {
-                changeSlide(currentIndex + 1);
-            }
-        });
-    },
+    //         if (e.key === 'ArrowLeft' && currentIndex > 0) {
+    //             changeSlide(currentIndex - 1);
+    //         } else if (e.key === 'ArrowRight' && currentIndex < slides.length - 1) {
+    //             changeSlide(currentIndex + 1);
+    //         }
+    //     });
+    // },
 
 
 };
