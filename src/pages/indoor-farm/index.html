@@ -1,25 +1,93 @@
 <link rel="stylesheet" href="../../../src/styles/indoor.css">
-<script src="../../../src/-carousel.js"></script>
+
+<script> console.log('script loaded')</script>
+<!-- <script src="../../test_arrows_carousel.js"></script> -->
+
+<!-- about us div container constains the following:
+    - Header 
+    - Mascot Speech Bubble - "reason section"
+-->
 
 <div class="about-container">
-    <!-- About Us Header -->
+    <!-- threejs section -->
+    <div id="threejs-container"></div>
+    
+    <!--About Us Header -->
     <div class="about-header">
-        <h1>BlueAcres' Grow Racks</h1>
+        <h1>BlueAcres'</h1>
+        <h1>Grow Rack</h1>
+    </div>
+    <img src="public/Assets/Components/mascot.png" alt="" class="story-mascot" />
+
+
+    <!-- Reason Section -->
+    <div class="reason-section">
+
+
+        <!-- Slider section -->
+        <div class="slider-container">
+
+            <!-- Add arrow buttons -->
+            <button class="carousel-arrow prev-arrow" aria-label="Previous slide"></button>
+            <button class="carousel-arrow next-arrow" aria-label="Next slide"></button>
+
+            <div class="slides">
+                
+                <div class="slide active">
+                    <div class="slide-title">Description</div>
+                    <div class="reason-content">
+                        <p>These are customed indoor vegetable grow racks designed to cultivate a variety of vegetables and crops
+                             hydroponically. These racks are installed with recirculating irrigation and dripped system each simulating 
+                             growth condition required by the different species. The racks also use different types of LEDs that emits
+                              different concentration of lights and the light spectrum necessary for photosynthesis to take place
+                        </p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="slide-title">Description</div>
+                    <div class="reason-content">
+                        <p>These racks are designed to demonstrate how a wide variety of nutritious fresh produce can be grown indoor when
+                            ideal growth conditions are introduced to the plants. In addition, by going vertical, we can now produce more
+                            in the limited space, enhancing our move to becoming more sustainable cultivation and improved nation food security
+                        </p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-title">Harvest Coverage:</div>
+                    <div class="reason-content">
+                        <p>
+                            <ul>
+                                <li>Strawberries</li>
+                                <li>Tomato</li>
+                                <li>Rosemary</li>
+                                <li>Coriander</li>
+                                <li>Romaine Lettuce</li>
+                                <li>Batavia Lettuce</li>
+                                <li>Xiao Bai Chye</li>
+                                <li>Cai Xin</li>
+                                <li>Kai Lan</li>
+                            </ul>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="bullet-nav">
+                <button class="bullet active" aria-label="Go to slide 1"></button>
+                <button class="bullet" aria-label="Go to slide 2"></button>
+                <button class="bullet" aria-label="Go to slide 3"></button>
+            </div>
+        </div>
+        <!-- <div class="video-container">
+            <video autoplay muted loop class="bg-video">
+                <source src="../../../public/Assets/Components/Rooftop Tour v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div> -->
     </div>
     
-    <!-- Reason Section -->
-    <img src="public/Assets/Components/mascot.png" alt="" class="story-mascot details-mascot" />
-    <div class="reason-section">
-        <div class="reason-content">
-            <p>
-                Constellar, the events and venue management company behind Singapore EXPO, has partnered 
-                with Blueacres to revolutionize vertical farming on-site. With expertise from Blueacres and 
-                automation innovations by SUTD students, the initiative aims to enhance efficiency, promote 
-                local produce, and raise awareness about food sustainability. By championing urban farming, 
-                this collaboration seeks to build a more sustainable and secure food future for Singapore.
-            </p>
-        </div>
-    </div>
-
-
+    
 </div>
+
+<!-- <script src="src/scroll-behavior.js"></script> -->

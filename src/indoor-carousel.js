@@ -1,41 +1,150 @@
-const slideContents = {
-          1: {
-              practices_content: "We believe that sustainability starts right from the food source to the table and beyond. This is why we work with catering partners who advocate seasonal and locally harvested produce to reduce food miles and carbon emissions.",
-          },
-          2: {
-              practices_content: "MICE venues such as EXPO can do more, by contributing to the local food production as well. By partnering with BlueAcres SG, a 2024 Impact Enterprise of the Year SME award winner, we have begun growing local produce right on site. In this way, we hope to be an exemplary example of a Circular Economy.",
-          },
-          3: {
-              practices_content: "Beyond employing today's methods of vertical farming, EXPO seeks to be a pioneer of vertical farming methods at MICE venues. We currently work with students from SUTD to develop an automation driven vertical farming system that brings about greater potential to food sustainability, a valuable advancement in modern farming methods.",
-          },
-      };
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-    const slides = document.getElementsByClassName("carousel-slide");
-    const dots = document.getElementsByClassName("dot");
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Initializing Indoor carousel and Three.js');
     
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
-        dots[i].classList.remove("active");
+    function initIndoorCarousel() {
+        const slides = document.querySelectorAll('.slide');
+        const bullets = document.querySelectorAll('.bullet');
+        const prevArrow = document.querySelector('.prev-arrow');
+        const nextArrow = document.querySelector('.next-arrow');
+
+        // Check if we're on the correct page by looking for carousel elements
+        if (!slides.length || !bullets.length) {
+            console.log('Carousel elements not found - might be on a different page');
+            return;
+        }
+
+        let currentIndex = 0;
+
+        // Carousel logic remains the same...
+        function updateArrowStates() {
+            prevArrow.classList.toggle('disabled', currentIndex === 0);
+            nextArrow.classList.toggle('disabled', currentIndex === slides.length - 1);
+        }
+
+        function changeSlide(index) {
+            if (index < 0 || index >= slides.length) return;
+            
+            currentIndex = index;
+            slides.forEach(slide => slide.classList.remove('active'));
+            bullets.forEach(bullet => bullet.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            bullets[index].classList.add('active');
+            
+            updateArrowStates();
+        }
+
+        // Add click handlers to bullets
+        bullets.forEach((bullet, index) => {
+            bullet.addEventListener('click', () => changeSlide(index));
+        });
+
+        // Add click handlers to arrows
+        prevArrow?.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                changeSlide(currentIndex - 1);
+            }
+        });
+
+        nextArrow?.addEventListener('click', () => {
+            if (currentIndex < slides.length - 1) {
+                changeSlide(currentIndex + 1);
+            }
+        });
+
+        // Initialize arrow states
+        updateArrowStates();
+        changeSlide(0);
     }
-    
-    slides[slideIndex-1].classList.add("active");
-    dots[slideIndex-1].classList.add("active");
-    
-    const content = slideContents[slideIndex];
-    
-    // Update practices section
-    document.querySelector('.practices-content p').textContent = content.practices_content;
-    
-    const detailsList = document.querySelector('.details-list');
-    detailsList.innerHTML = content.details_list
-        .map(item => `<li>${item}</li>`)
-        .join('');
-}
+
+    function initThreeJS() {
+        // Check if Three.js container exists
+        const container = document.getElementById('threejs-container');
+        if (!container) {
+            console.log('Three.js container not found');
+            return;
+        }
+
+        // Import required Three.js modules
+        import('three').then((THREE) => {
+            import('three/examples/jsm/controls/OrbitControls.js').then(({ OrbitControls }) => {
+                import('three/examples/jsm/loaders/GLTFLoader.js').then(({ GLTFLoader }) => {
+                    // Scene setup
+                    const scene = new THREE.Scene();
+                    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                    const renderer = new THREE.WebGLRenderer({ antialias: true });
+                    
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                    renderer.setClearColor(0xffffff);
+                    container.appendChild(renderer.domElement);
+
+                    // Lights
+                    const ambientLight = new THREE.AmbientLight(0x808080, 0.5);
+                    scene.add(ambientLight);
+                    const directionalLight = new THREE.DirectionalLight(0xffccff, 0.8);
+                    directionalLight.position.set(0, 10, 10);
+                    scene.add(directionalLight);
+
+                    // Load model
+                    const loader = new GLTFLoader();
+                    loader.load('src/models/model_.glb', (gltf) => {
+                        const model = gltf.scene;
+                        model.scale.set(0.1, 0.1, 0.1);
+                        model.position.set(5, 1, 5);
+                        model.rotation.y = Math.PI / 2;
+                        scene.add(model);
+                    });
+
+                    // Camera position
+                    camera.position.set(15, 15, 15);
+                    camera.lookAt(0, 0, 0);
+
+                    // Controls
+                    const controls = new OrbitControls(camera, renderer.domElement);
+                    controls.enableDamping = true;
+                    controls.dampingFactor = 0.05;
+
+                    // Animation loop
+                    function animate() {
+                        requestAnimationFrame(animate);
+                        controls.update();
+                        renderer.render(scene, camera);
+                    }
+                    animate();
+
+                    // Handle window resize
+                    window.addEventListener('resize', () => {
+                        camera.aspect = window.innerWidth / window.innerHeight;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(window.innerWidth, window.innerHeight);
+                    });
+                });
+            });
+        });
+    }
+
+    // Initialize both carousel and Three.js
+    initIndoorCarousel();
+    initThreeJS();
+
+    // Add a MutationObserver to handle dynamic content loading
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.addedNodes.length) {
+                if (document.querySelector('.slider-container')) {
+                    initIndoorCarousel();
+                    initThreeJS();
+                    observer.disconnect();
+                }
+            }
+        });
+    });
+
+    // Start observing the router-view element
+    const routerView = document.getElementById('router-view');
+    if (routerView) {
+        observer.observe(routerView, { childList: true, subtree: true });
+    }
+});
+
+
