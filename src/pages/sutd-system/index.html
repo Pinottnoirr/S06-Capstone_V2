@@ -1,26 +1,73 @@
 <link rel="stylesheet" href="../../../src/styles/sutd.css">
 
+<script> console.log('script loaded')</script>
+<!-- <script src="../../test_arrows_carousel.js"></script> -->
+
+<!-- about us div container constains the following:
+    - Header 
+    - Mascot Speech Bubble - "reason section"
+-->
+
 <div class="about-container">
-    <!-- About Us Header -->
+    <!-- threejs section -->
+    <div id="threejs-container"></div>
+    
+    <!--About Us Header -->
     <div class="about-header">
-        <h1>SUTD Harvest Tech</h1>
+        <h1>SUTD</h1>
+        <h1>Harvesting Automation</h1>
+    </div>
+    <img src="public/Assets/Components/mascot.png" alt="" class="story-mascot" />
+
+
+    <!-- Reason Section -->
+    <div class="reason-section">
+
+
+        <!-- Slider section -->
+        <div class="slider-container">
+
+            <!-- Add arrow buttons -->
+            <button class="carousel-arrow prev-arrow" aria-label="Previous slide"></button>
+            <button class="carousel-arrow next-arrow" aria-label="Next slide"></button>
+
+            <div class="slides">
+                
+                <div class="slide active">
+                    <div class="slide-title">Description</div>
+                    <div class="reason-content">
+                        <p>A Final Year Project by SUTD students aims to boost sustainability and improve crop harvesting in vertical
+                            farming, exploring production expansion.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="slide-title">How It Works</div>
+                    <div class="reason-content">                         
+                            <ol>
+                                <li>Engage with the shelf</li>
+                                <li>Mobile unit run through the rack</li>
+                                <li>Cut plants and retrieve</li>
+                                <li>Elevate, trim roots and retrieve plant holder</li>
+                            </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="bullet-nav">
+                <button class="bullet active" aria-label="Go to slide 1"></button>
+                <button class="bullet" aria-label="Go to slide 2"></button>
+            </div>
+        </div>
+        <!-- <div class="video-container">
+            <video autoplay muted loop class="bg-video">
+                <source src="../../../public/Assets/Components/Rooftop Tour v1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div> -->
     </div>
     
-    <!-- Reason Section -->
-    <img src="public/Assets/Components/mascot.png" alt="" class="story-mascot details-mascot" />
-    <div class="reason-section">
-        <div class="reason-content">
-            <p>
-                Constellar, the events and venue management company behind Singapore EXPO, has partnered 
-                with Blueacres to revolutionize vertical farming on-site. With expertise from Blueacres and 
-                automation innovations by SUTD students, the initiative aims to enhance efficiency, promote 
-                local produce, and raise awareness about food sustainability. By championing urban farming, 
-                this collaboration seeks to build a more sustainable and secure food future for Singapore.
-            </p>
-        </div>
-    </div>
-
-
+    
 </div>
 
-<script src="src/scroll-behavior.js"></script>
+<!-- <script src="src/scroll-behavior.js"></script> -->
