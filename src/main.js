@@ -2,24 +2,31 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
-//hi
+import { PI, texture } from 'three/tsl';
+
 const loader = new GLTFLoader();
 loader.setMeshoptDecoder(MeshoptDecoder);
-loader.load('src/models/model_.glb', function (gltf) {
+loader.load('src/models/Expo Model.gltf', function (gltf) {
     
     // Success callback
     const model = gltf.scene;
+
           
     // Optional: Scale the model if needed
     model.scale.set(0.1, 0.1, 0.1);  // Adjust these values as needed
     
     // Optional: Position the model
-    model.position.set(5, 1, 5);  // Adjust these values as needed
+    model.position.set(10, 0, 0);  // Adjust these values as needed
     
     // Optional: Rotate the model if needed
-    model.rotation.y = Math.PI / 2;  // Rotate 90 degrees if needed
+    model.rotation.y = Math.PI;  // Rotate 90 degrees if needed
     
+    model.rotateY(-0.5);
+    model.translateY(0);
+    model.translateX(-15);
+
     
+
     scene.add(model);
   },
 
@@ -33,26 +40,29 @@ loader.load('src/models/model_.glb', function (gltf) {
   }
 );
 
+
+
 // Scene setup
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0xffffff);
 document.getElementById('threejs-container').appendChild(renderer.domElement);
 
 // Add lights
-const ambientLight = new THREE.AmbientLight(0x808080, 0.5);
+const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
-const directionalLight = new THREE.DirectionalLight(0xffccff, 0.8);
-directionalLight.position.set(0, 10, 10);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+directionalLight.position.set(10, 5, 5);
+directionalLight.castShadow = true
 scene.add(directionalLight);
 
 // Create the base platform
 const platformGeometry = new THREE.BoxGeometry(20, 0.5, 20);
 const platformMaterial = new THREE.MeshPhongMaterial({ color: 0xcccccc });
 const platform = new THREE.Mesh(platformGeometry, platformMaterial);
-scene.add(platform);
+//scene.add(platform);
 
 // Create vertical farming structure
 const createFarmingStructure = () => {
@@ -78,16 +88,25 @@ const createFarmingStructure = () => {
   return structure;
 };
 
-scene.add(createFarmingStructure());
+//scene.add(createFarmingStructure());
 
 // Camera position
-camera.position.set(15, 15, 15);
+camera.position.set(75, 75, 70);
 camera.lookAt(0, 0, 0);
+camera.setFocalLength(50);
+
+THREE.NeutralToneMapping
+
 
 // Add OrbitControls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
+controls.target.set(0, 0, 0); // Set fixed rotation point (adjust as needed)
+controls.maxPolarAngle = Math.PI / 3; // Restrict vertical movement
+controls.minDistance = 2;
+controls.maxDistance = 120;
+controls.update();
 
 // Animation loop
 function animate() {
