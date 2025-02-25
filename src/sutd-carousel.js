@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function initThreeJS() {
         // Check if Three.js container exists
-        const container = document.getElementById('threejs-container');
+        const container = document.getElementById('threejs-container-sutd');
         if (!container) {
             console.log('Three.js container not found');
             return;

@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function initThreeJS() {
         // Check if Three.js container exists
-        const container = document.getElementById('threejs-container');
+        const container = document.getElementById('threejs-container-indoor');
         if (!container) {
             console.log('Three.js container not found');
             return;
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     // Load model
                     const loader = new GLTFLoader();
-                    loader.load('src/models/model_.glb', (gltf) => {
+                    loader.load('src/models/Expo Model.gltf', (gltf) => {
                         const model = gltf.scene;
                         model.scale.set(0.1, 0.1, 0.1);
                         model.position.set(5, 1, 5);
