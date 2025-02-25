@@ -87,9 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     // Load model
                     const loader = new GLTFLoader();
-                    loader.load('src/models/Expo Model.gltf', (gltf) => {
+                    loader.load('src/models/scene.gltf', (gltf) => {
                         const model = gltf.scene;
-                        model.scale.set(0.1, 0.1, 0.1);
+                        model.scale.set(1, 1, 1);
                         model.position.set(5, 1, 5);
                         model.rotation.y = Math.PI / 2;
                         scene.add(model);
