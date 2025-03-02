@@ -6,7 +6,7 @@ import { PI, texture } from 'three/tsl';
 
 const loader = new GLTFLoader();
 loader.setMeshoptDecoder(MeshoptDecoder);
-loader.load('src/models/Expo Model.gltf', function (gltf) {
+loader.load('src/models/model to be loaded_2.gltf', function (gltf) {
     
     // Success callback
     const model = gltf.scene;
