@@ -42,7 +42,7 @@
     padding-left: 68px;
 }
 .story-header h2 {
-    color: #DA1994;
+    color: #E141A0;
     font-size: 2rem;
     margin: 0;
     padding-left: 68px;
@@ -308,7 +308,7 @@
 }
 
 .carousel-arrow:hover::before {
-    border-color: #ff69b4;
+    border-color: #E141A0;
 }
 
 .prev-arrow {
@@ -365,5 +365,5 @@
 }
 
 .dot.active {
-    background-color: #ff69b4;
+    background-color: #E141A0;
 }

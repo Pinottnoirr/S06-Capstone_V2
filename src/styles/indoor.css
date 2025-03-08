@@ -113,7 +113,7 @@ font-size: larger;
 }
 
 &::-webkit-scrollbar-thumb {
-    background: #f687b3;  /* semi-transparent thumb matching your theme */
+    background: #E141A0;  /* semi-transparent thumb matching your theme */
     border-radius: 4px;
 }
 
@@ -155,7 +155,7 @@ background-color: #a0aec0;
 }
 
 .bullet.active {
-background-color: #f687b3;
+background-color: #E141A0;
 }
 
 /* ARROW section */
@@ -186,7 +186,7 @@ transition: all 0.3s ease;
 }
 
 .carousel-arrow:hover::before {
-border-color: #f687b3;
+border-color: #E141A0;
 }
 
 .prev-arrow {
@@ -318,7 +318,7 @@ box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .highlight {
-color: #e3007c;
+color: #E141A0;
 }
 
 /* New styles for the list */
@@ -344,9 +344,9 @@ margin: 0; /* Remove default paragraph margins */
 
 /* Mascot decorations */
 .story-mascot {
-width: 150px;
+width: 135px;
 height: auto;
-margin-left: 10px;
+margin-left: 33px;
 position:absolute;
 left: 0px;
 z-index: 20;

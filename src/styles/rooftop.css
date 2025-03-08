@@ -1,5 +1,5 @@
 .about-container {
-    position: relative;
+    position: fixed;
     padding-top: 15vh;
     padding-bottom: 15vh;
     width: 100%;
@@ -94,7 +94,7 @@
   }
   
   &::-webkit-scrollbar-thumb {
-      background: #f687b3;  /* semi-transparent thumb matching your theme */
+      background: #E141A0;  /* semi-transparent thumb matching your theme */
       border-radius: 4px;
   }
   
@@ -136,7 +136,7 @@
 }
 
 .bullet.active {
-  background-color: #f687b3;
+  background-color: #E141A0;
 }
 
 /* ARROW section */
@@ -167,7 +167,7 @@
 }
 
 .carousel-arrow:hover::before {
-  border-color: #f687b3;
+  border-color: #E141A0;
 }
 
 .prev-arrow {
@@ -299,7 +299,7 @@
 }
 
 .highlight {
-  color: #e3007c;
+  color: #E141A0;
 }
 
 .reason-content p {
@@ -311,9 +311,9 @@
 
 /* Mascot decorations */
 .story-mascot {
-  width: 150px;
+  width: 135px;
   height: auto;
-  margin-left: 10px;
+  margin-left: 33px;
   position:absolute;
   left: 0px;
   z-index: 5;
