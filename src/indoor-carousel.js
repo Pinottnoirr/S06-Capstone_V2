@@ -71,15 +71,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 import('three/examples/jsm/loaders/GLTFLoader.js').then(({ GLTFLoader }) => {
                     // Scene setup
                     const scene = new THREE.Scene();
-                    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
                     const renderer = new THREE.WebGLRenderer({ antialias: true });
                     
                     renderer.setSize(window.innerWidth, window.innerHeight);
-                    renderer.setClearColor(0xffffff);
+                    renderer.setClearColor(0xFFFFFF);
                     container.appendChild(renderer.domElement);
 
                     // Lights
-                    const ambientLight = new THREE.AmbientLight(0x808080, 0.5);
+                    const ambientLight = new THREE.AmbientLight(0x808080, 1);
                     scene.add(ambientLight);
                     const directionalLight = new THREE.DirectionalLight(0xffccff, 0.8);
                     directionalLight.position.set(0, 10, 10);
@@ -87,22 +87,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     // Load model
                     const loader = new GLTFLoader();
-                    loader.load('src/models/scene.gltf', (gltf) => {
+                    loader.load('src/models/growracks.gltf', function (gltf) {
                         const model = gltf.scene;
                         model.scale.set(1, 1, 1);
-                        model.position.set(5, 1, 5);
+                        model.position.set(15, -5, 5);
                         model.rotation.y = Math.PI / 2;
                         scene.add(model);
                     });
 
                     // Camera position
-                    camera.position.set(15, 15, 15);
+                    camera.position.set(30, 30, 30);
                     camera.lookAt(0, 0, 0);
 
                     // Controls
                     const controls = new OrbitControls(camera, renderer.domElement);
                     controls.enableDamping = true;
                     controls.dampingFactor = 0.05;
+                    controls.target.set(10, 0, 0); // Set fixed rotation point (adjust as needed)
+                    controls.maxPolarAngle = Math.PI / 3; // Restrict vertical movement
+                    controls.minDistance = 2;
+                    controls.maxDistance = 120;
+                    controls.update();
 
                     // Animation loop
                     function animate() {
