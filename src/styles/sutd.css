@@ -6,7 +6,8 @@
   margin-top: 100px;
   z-index: 3; /* Ensure content appears above three.js container */
   /*background-color: rgb(150, 139, 139,0);  Add background to ensure content is visible */
-  margin-left:0px
+  margin-left:0px;
+  background-color: 0xa0dfc7;
 }
 
 /* Threejs Section */

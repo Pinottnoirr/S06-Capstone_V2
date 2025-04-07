@@ -77,42 +77,134 @@ document.addEventListener('DOMContentLoaded', function() {
                 import('three/examples/jsm/loaders/GLTFLoader.js').then(({ GLTFLoader }) => {
                     // Scene setup
                     const scene = new THREE.Scene();
-                    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
                     const renderer = new THREE.WebGLRenderer({ antialias: true });
                     
+                    
                     renderer.setSize(window.innerWidth, window.innerHeight);
-                    renderer.setClearColor(0xffffff);
+                    renderer.setClearColor(0x9bc9c0, 1); // nice soft background
+                    renderer.shadowMap.enabled = true;
+                    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
                     container.appendChild(renderer.domElement);
 
-                    // Lights
-                    const ambientLight = new THREE.AmbientLight(0x808080, 0.5);
+                    //env map loader
+                    const cubeTextureLoader = new THREE.CubeTextureLoader();
+                    const envMap = cubeTextureLoader.setPath('src/textures/').load([
+                    'posx.jpg', 'negx.jpg',
+                    'posy.jpg', 'negy.jpg',
+                    'posz.jpg', 'negz.jpg'
+                    ]);
+
+                    scene.environment = envMap;  // Enable reflections
+                    //scene.background = envMap; // Optional, sets the skybox
+
+                    
+
+                    // Ambient light for soft overall illumination
+                    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
                     scene.add(ambientLight);
-                    const directionalLight = new THREE.DirectionalLight(0xffccff, 0.8);
-                    directionalLight.position.set(0, 10, 10);
+
+                    // Directional light for shadows
+                    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+                    directionalLight.position.set(10, 20, 10);
+                    directionalLight.castShadow = true;
+
+                    // Shadow quality settings
+                    directionalLight.shadow.mapSize.width = 4096;
+                    directionalLight.shadow.mapSize.height = 4096;
+                    directionalLight.shadow.camera.near = 1;
+                    directionalLight.shadow.camera.far = 50;
+                    directionalLight.shadow.camera.left = -10;
+                    directionalLight.shadow.camera.right = 10;
+                    directionalLight.shadow.camera.top = 10;
+                    directionalLight.shadow.camera.bottom = -10;
+
                     scene.add(directionalLight);
 
+                    const planeGeometry = new THREE.PlaneGeometry(200, 200);
+                    const planeMaterial = new THREE.MeshStandardMaterial({
+                    color: 0xa0dfc7,
+                    roughness: 1,
+                    metalness: 0
+                    });
+                    const shadowPlane = new THREE.Mesh(planeGeometry, planeMaterial);
+                    shadowPlane.rotation.x = -Math.PI / 2;
+                    shadowPlane.position.y = -4.01;
+                    shadowPlane.receiveShadow = true;
+                    scene.add(shadowPlane);
+                    
+
+
+                    // Create clock for animations
+                    const clock = new THREE.Clock();
+                    
+                    let mixer = null
                     // Load model
                     const loader = new GLTFLoader();
-                    loader.load('src/models/model_.glb', (gltf) => {
+                    loader.load('src/models/engine model_5.gltf', (gltf) => {
                         const model = gltf.scene;
-                        model.scale.set(0.1, 0.1, 0.1);
-                        model.position.set(5, 1, 5);
-                        model.rotation.y = Math.PI / 2;
+                        const animations = gltf.animations;
+                        model.castShadow = true;    // Object that casts the shadow
+                        model.receiveShadow = true; // Object that receives the shadow
+                        model.scale.set(0.3, 0.3, 0.3);
+                        model.position.set(0, -4, 0);
+                        model.rotation = Math.PI / 2;
+                        model.rotation.y = -Math.PI / 2;
+                        
+                        
+                        
+
+                        if (animations && animations.length > 0) {
+                            // Create an animation mixer to manage the animations 
+                            mixer = new THREE.AnimationMixer(model);
+                            
+                            // Loop through the animations and add them to the mixer
+                            animations.forEach((clip) => {
+                                mixer.clipAction(clip).play();
+                            });
+                        
+                            console.log(`Loaded ${animations.length} animations`);
+                        } else {
+                            console.log('No animations found in the model');
+                        }
+
+                        // Traverse to enable shadows for all meshes
+                        model.traverse((child) => {
+                            if (child.isMesh) {
+                                child.castShadow = true;
+                                child.receiveShadow = true;
+                            }
+                        });
+
                         scene.add(model);
                     });
 
-                    // Camera position
-                    camera.position.set(15, 15, 15);
-                    camera.lookAt(0, 0, 0);
+                   
+                    // Camera positions
+                    camera.position.set(7, 2, 7);
+                    camera.lookAt(0, 4, 0);
 
                     // Controls
                     const controls = new OrbitControls(camera, renderer.domElement);
                     controls.enableDamping = true;
                     controls.dampingFactor = 0.05;
+                    controls.target.set(0, 0, 0); // Set fixed rotation point (adjust as needed)
+                    controls.maxPolarAngle = Math.PI / 2; // Restrict vertical movement
+                    controls.minDistance = 2;
+                    controls.maxDistance = 120;
+                    controls.update();
 
+                
                     // Animation loop
                     function animate() {
                         requestAnimationFrame(animate);
+                        
+                        // Update mixer in the animation loop
+                        if (mixer) {
+                            const delta = clock.getDelta();
+                            mixer.update(delta);
+                        }
+                        
                         controls.update();
                         renderer.render(scene, camera);
                     }
