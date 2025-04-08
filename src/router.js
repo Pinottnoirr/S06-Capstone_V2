@@ -52,7 +52,14 @@ const router = {
                     content = await this.loadPage('/pages/story/index.html');
                     routerView.innerHTML = content;
                     this.hideHomeElements();
+                    
+                    // Dynamically load the script
+                    const script = document.createElement('script');
+                    script.src = '/scripts/story-carousel.js';
+                    script.type = 'module'; // Optional if you're using ES modules
+                    document.body.appendChild(script);
                     break;
+                      
 
                 // New routes for systems
                 case 'indoor-farm':
