@@ -1,2 +1,4 @@
 *.bin filter=lfs diff=lfs merge=lfs -text
 engine[[:space:]]model_5.bin filter=lfs diff=lfs merge=lfs -text
+SUTD[[:space:]]Tech.bin filter=lfs diff=lfs merge=lfs -text
+growracks-2.bin filter=lfs diff=lfs merge=lfs -text
