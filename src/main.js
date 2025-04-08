@@ -154,9 +154,9 @@ function handleAnnotationClick(annotationId) {
   let url = "";
 
   if (annotationId === 1) {
-      url = "http://localhost:5173/rooftop-farm";
+      url = "/rooftop-farm";
   } else if (annotationId === 2) {
-      url = "http://localhost:5173/indoor-farm";
+      url = "/indoor-farm";
 
   }
 
