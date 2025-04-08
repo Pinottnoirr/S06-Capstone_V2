@@ -59,6 +59,9 @@ const router = {
                     content = await this.loadPage('/src/pages/indoor-farm/index.html');
                     routerView.innerHTML = content;
                     this.hideHomeElements();
+
+                    const { initIndoorFarm } = await import('./indoor-carousel.js');
+                    if (initIndoorFarm) initIndoorFarm();
                     break;
 
                 case 'rooftop-farm':
