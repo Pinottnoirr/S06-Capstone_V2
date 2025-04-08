@@ -177,7 +177,7 @@ camera.position.set(75, 75, 70);
 camera.lookAt(0, 0, 0);
 camera.setFocalLength(50);
 
-THREE.NeutralToneMapping
+
 
 
 // Add OrbitControls
