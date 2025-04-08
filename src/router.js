@@ -52,17 +52,7 @@ const router = {
                     content = await this.loadPage('/pages/story/index.html');
                     routerView.innerHTML = content;
                     this.hideHomeElements();
-                    
-                    // Dynamically load the script only once
-                    if (!window.initStoryCarousel) {
-                        const script = document.createElement('script');
-                        script.src = '/scripts/story-carousel.js';
-                        script.type = 'module'; // Optional if you're using ESM features
-                        document.body.appendChild(script);
-                    } else {
-                        // Already loaded, just re-run it
-                        window.initStoryCarousel();
-                    }
+
                     
                     break;
                       
