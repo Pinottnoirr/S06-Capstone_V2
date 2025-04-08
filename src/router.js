@@ -37,26 +37,26 @@ const router = {
                     break;
                     
                 case 'about':
-                    content = await this.loadPage('/src/pages/about/index.html');
+                    content = await this.loadPage('/pages/about/index.html');
                     routerView.innerHTML = content;
                     this.hideHomeElements();
                     break;
                     
                 case 'ar':
-                    content = await this.loadPage('/src/pages/ar/index.html');
+                    content = await this.loadPage('/pages/ar/index.html');
                     routerView.innerHTML = content;
                     this.hideHomeElements();
                     break;
                     
                 case 'story':
-                    content = await this.loadPage('/src/pages/story/index.html');
+                    content = await this.loadPage('/pages/story/index.html');
                     routerView.innerHTML = content;
                     this.hideHomeElements();
                     break;
 
                 // New routes for systems
                 case 'indoor-farm':
-                    content = await this.loadPage('/src/pages/indoor-farm/index.html');
+                    content = await this.loadPage('/pages/indoor-farm/index.html');
                     routerView.innerHTML = content;
                     this.hideHomeElements();
 
@@ -65,7 +65,7 @@ const router = {
                     break;
 
                 case 'rooftop-farm':
-                    content = await this.loadPage('/src/pages/rooftop-farm/index.html');
+                    content = await this.loadPage('/pages/rooftop-farm/index.html');
                     routerView.innerHTML = content;
                     this.hideHomeElements();
                     // this bottom line force the bullet carousel js to run, due to router.js properties
@@ -73,7 +73,7 @@ const router = {
                     break;
 
                 case 'sutd-system':
-                    content = await this.loadPage('/src/pages/sutd-system/index.html');
+                    content = await this.loadPage('/pages/sutd-system/index.html');
                     routerView.innerHTML = content;
                     this.hideHomeElements();
                     break;
