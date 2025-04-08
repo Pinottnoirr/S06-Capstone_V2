@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     let mixer = null
                     // Load model
                     const loader = new GLTFLoader();
-                    loader.load('src/models/growracks-2.gltf', function (gltf) {
+                    loader.load('/models/growracks-2.gltf', function (gltf) {
                         const model = gltf.scene;
                         const animations = gltf.animations;
                         model.scale.set(0.3, 0.3, 0.3);

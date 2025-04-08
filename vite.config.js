@@ -2,5 +2,5 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/', // 👈 for root-level Vercel deployment
+  base: './', // 👈 for root-level Vercel deployment
 })

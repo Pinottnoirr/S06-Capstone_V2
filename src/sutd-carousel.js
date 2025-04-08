@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     let mixer = null
                     // Load model
                     const loader = new GLTFLoader();
-                    loader.load('src/models/engine model_5.1.gltf', (gltf) => {
+                    loader.load('/models/engine model_5.1.gltf', (gltf) => {
                         const model = gltf.scene;
                         const animations = gltf.animations;
                         model.castShadow = true;    // Object that casts the shadow
