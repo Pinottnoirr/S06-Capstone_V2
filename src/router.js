@@ -53,28 +53,15 @@ const router = {
                     routerView.innerHTML = content;
                     this.hideHomeElements();
                     
-                    // Load story-carousel.js dynamically
-                    const scriptLoaded = !!document.querySelector('script[src="/scripts/story-carousel.js"]');
-                    
-                    if (!scriptLoaded) {
-                        const script = document.createElement('script');
-                        script.src = '/scripts/story-carousel.js';
-                        script.onload = () => {
-                        console.log('✅ story-carousel.js loaded');
-                        if (typeof window.initStoryCarousel === 'function') {
-                            window.initStoryCarousel();
-                        }
-                        };
-                        script.onerror = () => {
-                        console.error('❌ Failed to load story-carousel.js');
-                        };
-                        document.body.appendChild(script);
-                    } else {
-                        // Already loaded → just re-run it
+                    // Dynamically load the story-carousel.js file
+                    const script = document.createElement('script');
+                    script.src = '/scripts/story-carousel.js'; // Must be in /public/scripts/
+                    script.onload = () => {
                         if (typeof window.initStoryCarousel === 'function') {
                         window.initStoryCarousel();
                         }
-                    }
+                    };
+                    document.body.appendChild(script);
                     
                     break;
                       
