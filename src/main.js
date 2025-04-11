@@ -49,7 +49,7 @@ let model
 
 const loader = new GLTFLoader();
 loader.setMeshoptDecoder(MeshoptDecoder);
-loader.load('/models/model_to_be_loaded_3.gltf', function (gltf) {
+loader.load('models/model_to_be_loaded_3.gltf', function (gltf) {
     
     // Success callback
     const model = gltf.scene;
