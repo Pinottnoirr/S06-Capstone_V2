@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     let mixer = null
                     // Load model
                     const loader = new GLTFLoader();
-                    loader.load('/models/engine model_5.1.gltf', (gltf) => {
+                    loader.load('/Users/user/Documents/capstone/Dev folder/S06-Capstone_V2/public/models/engine_model_5.1_fixed.gltf', (gltf) => {
                         const model = gltf.scene;
                         const animations = gltf.animations;
                         model.castShadow = true;    // Object that casts the shadow
