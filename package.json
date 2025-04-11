@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "live-server --open"
+    "start": "live-server --open",
+    "vercel-build": "git lfs install && git lfs pull && vite build"
+
   },
   "devDependencies": {
     "gh-pages": "^6.3.0",
