@@ -3,4 +3,3 @@ SUTD[[:space:]]Tech.bin filter=lfs diff=lfs merge=lfs -text
 engine[[:space:]]model_5.bin filter=lfs diff=lfs merge=lfs -text
 *.bin filter=lfs diff=lfs merge=lfs -text
 *.gltf filter=lfs diff=lfs merge=lfs -text
-
